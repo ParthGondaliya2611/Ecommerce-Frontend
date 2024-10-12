@@ -4,7 +4,7 @@ import ProductList from '../../features/product/ProductList'
 
 const AllProductPage = () => {
   return (
-    <Layout title="All-Products Ecommerce">
+    <Layout title="All-Products SwiftPick">
         <ProductList/>
     </Layout>
   )

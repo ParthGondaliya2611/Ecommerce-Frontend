@@ -4,7 +4,7 @@ import Layout from "./Layout";
 const LoginPage = () => {
   return (
     <>
-      <Layout title="Login Page">
+      <Layout title="Login-SwiftPick">
         <Login />
       </Layout>
     </>

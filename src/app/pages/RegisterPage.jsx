@@ -6,7 +6,7 @@ import Register from "../../features/auth/Register";
 const RegisterPage = () => {
   return (
     <>
-  <Layout title="Register Page">
+  <Layout title="Register-SwiftPick">
       <Register></Register>
       </Layout>
     </>

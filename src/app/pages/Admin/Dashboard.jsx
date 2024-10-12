@@ -75,7 +75,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Layout title="Dashboard - SWIFTPICK">
+      <Layout title="Dashboard - SwiftPick ">
         <div className="sm:px-10 px-4">
           <div className="w-full mt-10 text-center">
             <div>

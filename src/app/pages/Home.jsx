@@ -94,7 +94,7 @@ const HomeBlackWhite = () => {
   ];
 
   return (
-    <Layout title="Home - Ecommerce">
+    <Layout title="Home - SwiftPick">
       <div id="carouselExampleCaptions" className="relative w-full">
         {/* Carousel items */}
         <div className="relative w-full overflow-hidden after:clear-both  after:block after:content-['']">

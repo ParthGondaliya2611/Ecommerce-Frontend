@@ -55,7 +55,7 @@ const Orderpage = () => {
   }, []);
 
   return (
-    <Layout tittle="YourOrder-Ecommerce">
+    <Layout tittle="YourOrder-SwiftPick">
       <div className=" my-8 w-full max-w-7xl mx-auto   px-4 py-14 sm:px-6 lg:px-8 bg-white   ">
         <h1 className=" text-2xl font-bold">My Orders</h1>
         <div className=""> 

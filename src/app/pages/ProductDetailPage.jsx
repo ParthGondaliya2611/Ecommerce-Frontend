@@ -5,7 +5,7 @@ import Layout from './Layout';
 const ProductDetailPage = () => {
   return (
     <>
-    <Layout title="ProductDetail-Ecommerce">
+    <Layout title="ProductDetail-SwiftPick">
         <ProductDetail></ProductDetail>
     </Layout>
 </>

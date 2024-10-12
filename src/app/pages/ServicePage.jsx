@@ -4,7 +4,7 @@ import Layout from './Layout';
 
 const ServicePage = () => {
   return (
-    <Layout title="Service - Ecommerce"> 
+    <Layout title="Service - SwiftPick"> 
     <div className="  px-4 sm:px-6 lg:px-8 py-20">
       {/* Heading */}
       <div className="text-center">

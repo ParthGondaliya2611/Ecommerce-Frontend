@@ -4,7 +4,7 @@ import Layout from "./Layout";
 
 const ContactPage = () => {
   return (
-    <Layout title="Conatct - Ecommerce">
+    <Layout title="Conatct - SwiftPick">
       <div className=" mt-20  px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center">

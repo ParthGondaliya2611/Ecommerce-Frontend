@@ -8,7 +8,7 @@ const Search = () => {
   const { values } = useSearch();
   return (
     <>
-      <Layout title="search-item page">
+      <Layout title="search-item-SwiftPick">
         {values?.results.length === 0 ? (
           <>
             <div className="bg-white px-4 py-16 mt-12  flex justify-center ">

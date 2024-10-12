@@ -5,7 +5,7 @@ import Layout from "./Layout";
 const CartPage = () => {
   return (
     <>
-      <Layout title="Cart-Ecommerce">
+      <Layout title="Cart-SwiftPick">
         <Cart />
       </Layout>
     </>

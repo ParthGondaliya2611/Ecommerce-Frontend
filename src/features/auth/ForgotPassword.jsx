@@ -43,7 +43,7 @@ const ForgotPassword = () => {
   };
   return (
     <>
-      <Layout title="ForgotPassword-Ecommerce">
+      <Layout title="ForgotPassword-SwiftPick">
         <div className="flex items-center  flex-1 flex-col justify-center   px-6 py-8 lg:px-8">
           <div className=" bg-white px-6 py-8 sm:max-w-[500px] w-full shadow-xl rounded-xl  ">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col gap-5">
