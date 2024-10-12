@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { Prices } from "../../app/api/Prices";
 import ProductCard from "../../app/components/common/ProductCard";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { api } from "../../utils/api";
 
 const ProductList = () => {
   const [products, setproducts] = useState([]);
@@ -70,7 +71,7 @@ const ProductList = () => {
   const Categories = async () => {
     try {
       const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/category/categories`
+         `${api}/api/v1/category/categories`
       );
       const data = await res.json();
       setcategory(data.category);
@@ -114,7 +115,7 @@ const ProductList = () => {
   ) => {
     try {
       const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/products?checked=${selectedCategories}&filters=${selectedPrices}&perpage=${perpage}&page=${page}`
+         `${api}/api/v1/products?checked=${selectedCategories}&filters=${selectedPrices}&perpage=${perpage}&page=${page}`
       );
 
       const data = await res.json();

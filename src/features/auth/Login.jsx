@@ -4,6 +4,7 @@ import { useAuth } from "../../context/auth";
 
 import {  toast } from 'react-toastify';
 import logo from "../../app/img/mainlogo.png";
+import { api } from "../../utils/api";
 
 
 export function Login() {
@@ -25,7 +26,7 @@ export function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://swiftpick-backend.vercel.app/api/v1/auth/login", {
+      const response = await fetch( `${api}/api/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

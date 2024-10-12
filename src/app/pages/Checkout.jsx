@@ -9,6 +9,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CreateAddressForm from "../components/common/CreateAddressForm";
 import AddressData from "../components/common/AddressData";
 import { toast } from "react-toastify";
+import { api } from "../../utils/api";
 
 const Checkout = () => {
  
@@ -88,7 +89,7 @@ const Checkout = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        "https://swiftpick-backend.vercel.app/api/v1/Address/newaddress",
+        `${api}/api/v1/Address/newaddress`,
         {
           method: "POST",
           headers: {
@@ -124,7 +125,7 @@ const Checkout = () => {
   const getaddress = async () => {
     try {
       const res = await fetch(
-        "https://swiftpick-backend.vercel.app/api/v1/Address/getaddress",
+        `${api}/api/v1/Address/getaddress`,
         {
           method: "GET",
           headers: {
@@ -167,7 +168,7 @@ const Checkout = () => {
 
     try {
       const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/Address/deleteaddress/${id}`,
+        `${api}/api/v1/Address/deleteaddress/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -189,7 +190,7 @@ const Checkout = () => {
   //create order
   const Order = async () => {
     try {
-      const res = await fetch("https://swiftpick-backend.vercel.app/api/v1/Order/neworder", {
+      const res = await fetch(`${api}/api/v1/Order/neworder`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Layout from "../../app/pages/Layout";
 import logo from "../../app/img/mainlogo.png";
+import { api } from "../../utils/api";
 
 const ForgotPassword = () => {
   const [ForgotPassword, setForgotPassword] = useState({
@@ -22,7 +23,7 @@ const ForgotPassword = () => {
     e?.preventDefault();
     try {
       const response = await fetch(
-        "https://swiftpick-backend.vercel.app/api/v1/auth/forgot-password",
+        `${api}/api/v1/auth/forgot-password`,
         {
           method: "POST",
           headers: {

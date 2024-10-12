@@ -5,6 +5,7 @@ import Token from "../../../utils/Auth";
 
 import { toast } from "react-toastify";
 import logo from "../../img/mainlogo.png";
+import { api } from "../../../utils/api";
 
 const Dashboard = () => {
   const token=Token()
@@ -30,7 +31,7 @@ const Dashboard = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/auth/update-User/${token?.user.id}`,
+         `${api}/api/v1/auth/update-User/${token?.user.id}`,
         {
           method: "PUT",
           headers: {
@@ -52,7 +53,7 @@ const Dashboard = () => {
   const singleUser = async () => {
     try {
       const response = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/auth/singleUser`,
+         `${api}/api/v1/auth/singleUser`,
         {
           method: "GET",
           headers: {

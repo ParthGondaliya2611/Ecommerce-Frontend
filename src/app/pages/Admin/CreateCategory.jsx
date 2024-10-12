@@ -3,6 +3,7 @@ import Layout from "../Layout";
 import AdminMenu from "../layout/DashboardPannel";
 import { toast } from "react-toastify";
 import CategoryForm from "../../components/Form/CategoryForm";
+import { api } from "../../../utils/api";
 
 const CreateCategory = () => {
   const [categories, setcategory] = useState();
@@ -25,7 +26,7 @@ const CreateCategory = () => {
     const token = JSON.parse(localStorage.getItem("auth")).token;
     if (id) {
       const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/category/update-category/${id}`,
+        `${api}/api/v1/category/update-category/${id}`,
         {
           method: "PUT",
           headers: {
@@ -47,7 +48,7 @@ const CreateCategory = () => {
     } else {
       try {
         const res = await fetch(
-          "https://swiftpick-backend.vercel.app/api/v1/category/create-category",
+          `${api}/api/v1/category/create-category`,
           {
             method: "POST",
             headers: {
@@ -75,7 +76,7 @@ const CreateCategory = () => {
 
     try {
       const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/category/delete-category/${category._id}`,
+        `${api}/api/v1/category/delete-category/${category._id}`,
         {
           method: "DELETE",
           headers: {
@@ -99,7 +100,7 @@ const CreateCategory = () => {
   const getAllCategory = async () => {
     try {
       const res = await fetch(
-        "https://swiftpick-backend.vercel.app/api/v1/category/categories"
+         `${api}/api/v1/category/categories`
       );
       const data = await res.json();
       setcategory(data.category);

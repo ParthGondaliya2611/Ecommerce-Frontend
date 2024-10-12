@@ -5,6 +5,7 @@ import Token from "../../../utils/Auth";
 import FetchcartData from "../../../utils/Cart";
 import { toast } from "react-toastify";
 import { useCart } from "../../../context/Cart";
+import { api } from "../../../utils/api";
 
 export function Cart() {
   const token = Token();
@@ -31,7 +32,7 @@ export function Cart() {
 
   const filterCart = async (productid, quantity) => {
     try {
-      await fetch(`https://swiftpick-backend.vercel.app/api/v1/cart/filtercart`, {
+      await fetch(`${api}/api/v1/cart/filtercart`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

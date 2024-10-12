@@ -3,6 +3,7 @@ import Layout from "../Layout";
 import AdminMenu from "../layout/DashboardPannel";
 import { toast } from "react-toastify";
 import ProductForm from "../../components/Form/ProductForm";
+import { api } from "../../../utils/api";
 
 const CreateProduct = () => {
   const [Product, setProduct] = useState({
@@ -60,7 +61,7 @@ const CreateProduct = () => {
   //get all products
   const getProducts = async () => {
     try {
-      const response = await fetch("https://swiftpick-backend.vercel.app/api/v1/products");
+      const response = await fetch(`${api}/api/v1/products`);
       const data = await response.json();
       setproducts(data.products);
     } catch (error) {
@@ -89,18 +90,15 @@ const CreateProduct = () => {
     const token = JSON.parse(localStorage.getItem("auth")).token;
 
     if (id) {
-      const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/update-product/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            Authorization: token,
-          },
-          body: formData,
-        }
-      );
+      const res = await fetch(`${api}/api/v1/update-product/${id}`, {
+        method: "PUT",
+        headers: {
+          Authorization: token,
+        },
+        body: formData,
+      });
       const data = await res.json();
-      
+
       if (data.success) {
         toast.success("Product Updated Successfully");
         setProduct("");
@@ -112,7 +110,7 @@ const CreateProduct = () => {
     } else {
       try {
         const response = await fetch(
-          " https://swiftpick-backend.vercel.app/api/v1/create-product",
+          `${api}/api/v1/create-product`,
           {
             method: "POST",
             headers: {
@@ -122,7 +120,7 @@ const CreateProduct = () => {
           }
         );
         const data = await response.json();
-        
+
         if (data.success) {
           toast.success("Product Created Successfully");
           // setFiles([]);
@@ -138,7 +136,7 @@ const CreateProduct = () => {
   const deleteProduct = async (product) => {
     const token = JSON.parse(localStorage.getItem("auth")).token;
     const res = await fetch(
-      `https://swiftpick-backend.vercel.app/api/v1/delete-product/${product._id}`,
+       `${api}/api/v1/delete-product/${product._id}`,
       {
         method: "DELETE",
         headers: {

@@ -9,6 +9,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import Layout from "./Layout";
 import { Link } from "react-router-dom";
 import ProductCard from "../components/common/ProductCard";
+import { api } from "../../utils/api";
 
 const HomeBlackWhite = () => {
   const [products, setproducts] = useState([]);
@@ -20,7 +21,7 @@ const HomeBlackWhite = () => {
   const filterProducts = async () => {
     try {
       const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/products?checked=${checked}&filters=${filters}&perpage=${perpage}&page=${page}`
+        `${api}/api/v1/products?checked=${checked}&filters=${filters}&perpage=${perpage}&page=${page}`
       );
 
       const data = await res.json();

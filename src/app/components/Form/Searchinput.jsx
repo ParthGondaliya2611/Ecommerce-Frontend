@@ -2,6 +2,7 @@ import React from "react";
 import { useSearch } from "../../../context/Search";
 import { useNavigate } from "react-router-dom";
 import { IoSearchSharp } from "react-icons/io5";
+import { api } from "../../../utils/api";
 
 const Searchinput = () => {
   const { values, setvalues } = useSearch();
@@ -12,7 +13,7 @@ const Searchinput = () => {
     e?.preventDefault();
     try {
       const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/search-item/${values.keyword}`
+        `${api}/api/v1/search-item/${values.keyword}`
       );
 
       const data = await res.json();

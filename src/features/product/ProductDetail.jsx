@@ -8,6 +8,7 @@ import { FaMinus } from "react-icons/fa";
 import Token from "../../utils/Auth";
 import SmilarProduct from "../../app/components/common/SmilarProduct";
 import StarRatings from "react-star-ratings";
+import { api } from "../../utils/api";
 
 const ProductDetail = () => {
   const token = Token();
@@ -27,7 +28,7 @@ const ProductDetail = () => {
   const getsingleProduct = async () => {
     try {
       const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/singleProducts/${id}`
+         `${api}/api/v1/singleProducts/${id}`
       );
       const data = await res.json();
 
@@ -41,7 +42,7 @@ const ProductDetail = () => {
   const getsimilarProduct = async (pid, cid) => {
     try {
       const res = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/similar-products/${pid}/${cid}`
+        `${api}/api/v1/similar-products/${pid}/${cid}`
       );
       const data = await res.json();
       setSimilarProducts(data.products);
@@ -59,7 +60,7 @@ const ProductDetail = () => {
   const Addcart = async () => {
     try {
       const response = await fetch(
-        `https://swiftpick-backend.vercel.app/api/v1/cart/AddProduct`,
+        `${api}/api/v1/cart/AddProduct`,
         {
           method: "POST",
           headers: {

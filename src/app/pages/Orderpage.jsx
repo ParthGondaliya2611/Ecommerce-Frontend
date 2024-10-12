@@ -3,13 +3,14 @@ import Layout from "./Layout";
 import Token from "../../../src/utils/Auth";
 import { toast } from "react-toastify";
 import NotFound from "../components/common/NotFound";
+import { api } from "../../utils/api";
 const Orderpage = () => {
   const [orderData, setorderData] = useState([]);
   const token = Token();
   const cancelorder = async (pid) => {
     try {
       const res = await fetch(
-        "https://swiftpick-backend.vercel.app/api/v1/Order/cancelorder",
+        `${api}/api/v1/Order/cancelorder`,
         {
           method: "PUT",
           headers: {
@@ -32,7 +33,7 @@ const Orderpage = () => {
   const getorders = async () => {
     try {
       const response = await fetch(
-        "https://swiftpick-backend.vercel.app/api/v1/Order/getorder",
+        `${api}/api/v1/Order/getorder`,
         {
           method: "GET",
           headers: {
