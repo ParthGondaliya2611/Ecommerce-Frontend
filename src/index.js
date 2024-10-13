@@ -5,8 +5,8 @@ import "./index.css";
 import { AuthProvider } from "./context/auth";
 import { BrowserRouter } from "react-router-dom";
 
-import { ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { SearchProvider } from "./context/Search";
 import { CartProvider } from "./context/Cart";
 const container = document.getElementById("root");
@@ -18,7 +18,11 @@ root.render(
       <SearchProvider>
         <CartProvider>
           <BrowserRouter>
-            <ToastContainer autoClose={1800} />
+            <ToastContainer
+              position="top-right" /* This sets the horizontal position to center */
+              style={{ top: "10%" }} /* Set custom top offset */
+              autoClose={1500}
+            />
             <App />
           </BrowserRouter>
         </CartProvider>

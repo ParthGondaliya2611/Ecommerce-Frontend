@@ -1,4 +1,3 @@
-import { StarIcon } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -8,7 +7,7 @@ import { FaMinus } from "react-icons/fa";
 import Token from "../../utils/Auth";
 import SmilarProduct from "../../app/components/common/SmilarProduct";
 import StarRatings from "react-star-ratings";
-import { api } from "../../utils/api";
+import { api,  } from "../../utils/api";
 
 const ProductDetail = () => {
   const token = Token();
@@ -60,7 +59,7 @@ const ProductDetail = () => {
   const Addcart = async () => {
     try {
       const response = await fetch(
-        `${api}/api/v1/cart/AddProduct`,
+        `${api}4/api/v1/cart/AddProduct`,
         {
           method: "POST",
           headers: {
@@ -183,7 +182,7 @@ const ProductDetail = () => {
                   <Link
                     to="/cart"
                     onClick={Addcart}
-                    className="bg-indigo-600 absolute flex  gap-2 items-center w-fit justify-center  text-white px-6 py-3 rounded-md hover:bg-indigo-700 focus:outline-none font-medium focus:ring-2 shadow-indigo-400 shadow-md focus:ring-indigo-500 focus:ring-offset-2"
+                    className="bg-indigo-600 absolute flex  gap-2 items-center w-fit justify-center  text-white px-6 py-3 rounded-md hover:bg-indigo-700 focus:outline-none font-medium focus:ring-2 shadow-indigo-400 shadow-sm focus:ring-indigo-500 focus:ring-offset-2"
                   >
                     <PiShoppingCartDuotone className="text-xl" />
                     Add to Cart

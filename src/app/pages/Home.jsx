@@ -9,14 +9,14 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import Layout from "./Layout";
 import { Link } from "react-router-dom";
 import ProductCard from "../components/common/ProductCard";
-import { api } from "../../utils/api";
+import { api,  } from "../../utils/api";
 
 const HomeBlackWhite = () => {
   const [products, setproducts] = useState([]);
-  const [filters, setfilter] = useState([]);
+  const [filters] = useState([]);
   const [checked] = useState([]);
-  const [page, setpage] = useState(1);
-  const [perpage] = useState(20);
+  const [page] = useState(1);
+  const [perpage] = useState(14);
 
   const filterProducts = async () => {
     try {
@@ -137,7 +137,7 @@ const HomeBlackWhite = () => {
             <Link to={`/products/${photos.label}`} key={index}>
               <div
                 
-                className=" flex flex-col items-center justify-center   bg-gray-100 "
+                className=" flex flex-col items-center justify-center  "
               >
                 <img
                   src={photos?.image}

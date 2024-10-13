@@ -3,7 +3,7 @@ import Layout from "../Layout";
 import AdminMenu from "../layout/DashboardPannel";
 import { toast } from "react-toastify";
 import ProductForm from "../../components/Form/ProductForm";
-import { api } from "../../../utils/api";
+import { api,  } from "../../../utils/api";
 
 const CreateProduct = () => {
   const [Product, setProduct] = useState({

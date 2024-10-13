@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { Prices } from "../../app/api/Prices";
 import ProductCard from "../../app/components/common/ProductCard";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { api } from "../../utils/api";
+import { api,  } from "../../utils/api";
 
 const ProductList = () => {
   const [products, setproducts] = useState([]);

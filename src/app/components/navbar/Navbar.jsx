@@ -40,7 +40,7 @@ const Navbar = ({ children }) => {
   useEffect(() => {
     getcartProduct();
 
-    // eslint-disable-next-line                                                         
+    // eslint-disable-next-line
   }, []);
 
   const handleinput = () => {
@@ -53,7 +53,7 @@ const Navbar = ({ children }) => {
       <div className="">
         <Disclosure
           as="nav"
-          className="bg-white sticky top-0 w-full z-10 shadow-md shadow-gray-500"
+          className="bg-white sticky top-0 w-full z-10 shadow-sm shadow-gray-500"
         >
           {/* logo main */}
           <div className="">
@@ -72,7 +72,7 @@ const Navbar = ({ children }) => {
                     to="/"
                     className={({ isActive }) =>
                       isActive
-                        ? "py-1.5 px-4 bg-indigo-300 text-indigo-600 font-semibold rounded"
+                        ? "py-1.5 px-4 bg-indigo-200 text-indigo-500 font-semibold rounded"
                         : "py-1.5 px-4 hover:bg-gray-200 text-black font-semibold rounded"
                     }
                   >
@@ -83,7 +83,7 @@ const Navbar = ({ children }) => {
                     to="/contact"
                     className={({ isActive }) =>
                       isActive
-                        ? "py-1.5 px-4 bg-indigo-300 text-indigo-600 font-semibold rounded"
+                        ? "py-1.5 px-4 bg-indigo-200 text-indigo-500 font-semibold rounded"
                         : "py-1.5 px-4 hover:bg-gray-200 text-black font-semibold rounded"
                     }
                   >
@@ -94,7 +94,7 @@ const Navbar = ({ children }) => {
                     to="/services"
                     className={({ isActive }) =>
                       isActive
-                        ? "py-1.5 px-4 bg-indigo-300 text-indigo-600 font-semibold rounded"
+                        ? "py-1.5 px-4 bg-indigo-200 text-indigo-500 font-semibold rounded"
                         : "py-1.5 px-4 hover:bg-gray-200 text-black font-semibold rounded"
                     }
                   >
@@ -112,7 +112,7 @@ const Navbar = ({ children }) => {
                       type="button"
                       className="relative rounded-full py-2 text-gray-400 hover:text-black focus:outline-none  focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
-                      <span className="inline-flex items-center rounded-full bottom-5 absolute  bg-gray-50 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-gray-500/10">
+                      <span className="inline-flex items-center rounded-full bottom-5  absolute  bg-gray-50 px-2.5 py-1 text-sm font-medium text-black ring-1 ring-inset ring-gray-500/10">
                         {cart ? cart : "0"}
                       </span>
                       <ShoppingCartIcon
@@ -126,9 +126,7 @@ const Navbar = ({ children }) => {
                   <Menu as="div" className="relative">
                     <div>
                       <MenuButton
-                        className={`relative flex max-w-xs items-center rounded-full text-sm ${
-                          token?.user ? "ring-green-500" : "ring-red-500"
-                        } ring-2 ring-offset-2 ring-offset-gray-800`}
+                        className={`relative flex max-w-xs items-center rounded-full text-sm ring-2 ring-offset-2 ring-offset-gray-800`}
                       >
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
@@ -238,7 +236,7 @@ const Navbar = ({ children }) => {
           </div>
 
           <DisclosurePanel className="block mg:hidden">
-            <div className="border-t border-gray-700 bg-indigo-50 pb-3 ">
+            <div className="border-t border-gray-700  pb-3 ">
               <div className="flex items-center justify-stretch w-full px-5 py-4">
                 <div className="w-full sm:w-auto flex-grow">
                   <div className="text-sm font-medium leading-none text-black">
@@ -247,29 +245,26 @@ const Navbar = ({ children }) => {
                 </div>
 
                 <Menu>
-                  <div className="flex justify-end w-full gap-3.5">
+                  <div className="flex justify-end w-full gap-6">
                     <div>
-                      <button
-                        type="button"
-                        className="relative  flex-shrink-0 rounded-full  p-1 text-black  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                      >
-                        <NavLink to="/cart">
-                          <span className="absolute -inset-1.5" />
-                          <span className="inline-flex items-center rounded-full bottom-5 left-4 absolute   px-2 py-1  text-sm font-semibold text-black   ring-1 ring-inset ring-gray-500/10">
+                      <Link to="/cart">
+                        <button
+                          type="button"
+                          className="relative rounded-full py-2 text-gray-400 hover:text-black focus:outline-none  focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                        >
+                          <span className="inline-flex items-center rounded-full bottom-6 absolute -z-20 bg-gray-50 px-2.5 py-1 text-sm font-medium text-black ring-1 ring-inset ring-gray-500/10">
                             {cart ? cart : "0"}
                           </span>
                           <ShoppingCartIcon
                             aria-hidden="true"
-                            className="h-6 w-8"
+                            className="h-6 w-6 text-black"
                           />
-                        </NavLink>
-                      </button>
+                        </button>
+                      </Link>
                     </div>
                     <div>
                       <MenuButton
-                        className={`relative flex  items-center rounded-full text-sm ${
-                          token?.user ? "ring-green-500" : "ring-red-500"
-                        } ring-2 ring-offset-2 ring-offset-gray-800`}
+                        className={`relative flex max-w-xs items-center rounded-full text-sm ring-2 ring-offset-2 ring-offset-gray-800`}
                       >
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
@@ -363,7 +358,7 @@ const Navbar = ({ children }) => {
                     to="/"
                     className={({ isActive }) =>
                       isActive
-                        ? "py-1.5 px-4 bg-indigo-300 text-indigo-600 font-semibold rounded"
+                        ? "py-1.5 px-4 bg-indigo-200 text-indigo-500 font-semibold rounded"
                         : "py-1.5 px-4 hover:bg-gray-50 bg-indigo-100 text-indigo-500 font-semibold rounded"
                     }
                   >
@@ -374,7 +369,7 @@ const Navbar = ({ children }) => {
                     to="/contact"
                     className={({ isActive }) =>
                       isActive
-                        ? "py-1.5 px-4 bg-indigo-300 text-indigo-600 font-semibold rounded"
+                        ? "py-1.5 px-4 bg-indigo-200 text-indigo-500 font-semibold rounded"
                         : "py-1.5 px-4 hover:bg-gray-50 bg-indigo-100 text-indigo-500 font-semibold rounded"
                     }
                   >
@@ -385,7 +380,7 @@ const Navbar = ({ children }) => {
                     to="/services"
                     className={({ isActive }) =>
                       isActive
-                        ? "py-1.5 px-4 bg-indigo-300 text-indigo-600 font-semibold rounded"
+                        ? "py-1.5 px-4 bg-indigo-200 text-indigo-500 font-semibold rounded"
                         : "py-1.5 px-4 hover:bg-gray-50 bg-indigo-100 text-indigo-500 font-semibold rounded"
                     }
                   >

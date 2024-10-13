@@ -3,7 +3,7 @@ import Layout from "./Layout";
 import Token from "../../../src/utils/Auth";
 import { toast } from "react-toastify";
 import NotFound from "../components/common/NotFound";
-import { api } from "../../utils/api";
+import { api,  } from "../../utils/api";
 const Orderpage = () => {
   const [orderData, setorderData] = useState([]);
   const token = Token();

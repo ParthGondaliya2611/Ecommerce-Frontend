@@ -10,12 +10,12 @@ const DashboardPannel = () => {
         <div className="text-left ">
           <Link to="/dashboard">
             <h4 className="text-lg mg:text-2xl  font-bold">
-              {token?.user?.role === 1 ? "Admin Panel" : "User Panel"}
+              {token?.user?.role === "Admin" ? "Admin Panel" : "User Panel"}
             </h4>
           </Link>
         </div>
         <div className="flex space-x-4">
-          {token?.user?.role === 1 ? (
+          {token?.user?.role === "Admin" ? (
             <>
               <Link
                 to="/dashboard/create-category"

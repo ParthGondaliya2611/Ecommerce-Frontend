@@ -4,7 +4,7 @@ import { useAuth } from "../../context/auth";
 
 import {  toast } from 'react-toastify';
 import logo from "../../app/img/mainlogo.png";
-import { api } from "../../utils/api";
+import { api,  } from "../../utils/api";
 
 
 export function Login() {

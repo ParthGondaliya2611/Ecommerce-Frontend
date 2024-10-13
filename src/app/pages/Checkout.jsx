@@ -9,7 +9,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CreateAddressForm from "../components/common/CreateAddressForm";
 import AddressData from "../components/common/AddressData";
 import { toast } from "react-toastify";
-import { api } from "../../utils/api";
+import { api,  } from "../../utils/api";
 
 const Checkout = () => {
  

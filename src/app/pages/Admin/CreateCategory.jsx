@@ -3,7 +3,7 @@ import Layout from "../Layout";
 import AdminMenu from "../layout/DashboardPannel";
 import { toast } from "react-toastify";
 import CategoryForm from "../../components/Form/CategoryForm";
-import { api } from "../../../utils/api";
+import { api,  } from "../../../utils/api";
 
 const CreateCategory = () => {
   const [categories, setcategory] = useState();

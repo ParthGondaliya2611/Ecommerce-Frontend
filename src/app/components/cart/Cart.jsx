@@ -15,7 +15,7 @@ export function Cart() {
 
   const getcartProduct = async () => {
     const data = await FetchcartData(token);
-    const subtotal = data.cart.products.reduce((accumulator, product) => {
+    const subtotal = data?.cart?.products?.reduce((accumulator, product) => {
       return (accumulator +=
         product?.product?.pricediscount * product.quantity);
     }, 0);
@@ -26,7 +26,7 @@ export function Cart() {
 
   useEffect(() => {
     getcartProduct();
-    
+
     // eslint-disable-next-line
   }, []);
 
@@ -40,9 +40,7 @@ export function Cart() {
         },
         body: JSON.stringify({ pid: productid, nquantity: quantity }),
       });
-
       getcartProduct();
-      toast.success("Cart Product Remove Succesfully");
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +53,7 @@ export function Cart() {
           <h1 className="text-4xl text-start my-4 font-bold tracking-tight text-gray-900">
             Cart
           </h1>
-          {token.token ? (
+          {token?.token ? (
             productsdata?.length > 0 ? (
               <div className="flow-root">
                 <ul className="-my-6 divide-y divide-gray-200">
@@ -157,7 +155,7 @@ export function Cart() {
           )}
         </div>
 
-        {token.token && productsdata?.length > 0 && (
+        {token?.token && productsdata?.length > 0 && (
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
             <div className="flex justify-between text-base font-medium text-gray-900">
               <p>Subtotal</p>$ {total}

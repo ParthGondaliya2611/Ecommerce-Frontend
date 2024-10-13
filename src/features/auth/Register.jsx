@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import logo from "../../app/img/mainlogo.png";
-import { api } from "../../utils/api";
+import { api,  } from "../../utils/api";
 
 const Register = () => {
   const [register, setRegister] = useState({

@@ -5,7 +5,7 @@ import Token from "../../../utils/Auth";
 
 import { toast } from "react-toastify";
 import logo from "../../img/mainlogo.png";
-import { api } from "../../../utils/api";
+import { api,  } from "../../../utils/api";
 
 const Dashboard = () => {
   const token=Token()
