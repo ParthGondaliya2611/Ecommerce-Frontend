@@ -5,7 +5,7 @@ const getcartproducts = async (token) => {
     const res = await fetch( `${api}/api/v1/cart/getCart`, {
       method: "GET",
       headers: {
-        Authorization: token.token,
+        Authorization: token?.token,
       },
     });
 

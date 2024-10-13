@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Disclosure,
   DisclosureButton,
@@ -30,6 +30,7 @@ import FetchcartData from "../../../utils/Cart";
 const Navbar = ({ children }) => {
   const token = Token();
   const { cart, setcart } = useCart();
+  const [isLogin, setIsLogin] = useState(true);
 
   const getcartProduct = async () => {
     const data = await FetchcartData(token);
@@ -45,6 +46,7 @@ const Navbar = ({ children }) => {
 
   const handleinput = () => {
     localStorage.removeItem("auth");
+    setIsLogin(false);
     toast.success("Logged out successfully!");
   };
 
@@ -142,7 +144,7 @@ const Navbar = ({ children }) => {
                       transition
                       className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                     >
-                      {token?.user ? (
+                      {isLogin === true ? (
                         <>
                           <MenuItem className="  sm:px-3">
                             <NavLink
@@ -281,7 +283,7 @@ const Navbar = ({ children }) => {
                     transition
                     className="absolute right-6 top-28 z-10  mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                   >
-                    {token?.user ? (
+                    {isLogin === true ? (
                       <>
                         <MenuItem className=" ">
                           <NavLink
