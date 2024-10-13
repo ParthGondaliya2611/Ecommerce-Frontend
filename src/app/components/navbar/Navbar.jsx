@@ -237,7 +237,7 @@ const Navbar = ({ children }) => {
 
           <DisclosurePanel className="block mg:hidden">
             <div className="border-t border-gray-700  pb-3 ">
-              <div className="flex items-center justify-stretch w-full px-5 py-4">
+              <div className="flex items-center justify-stretch w-full px-2.5 py-4">
                 <div className="w-full sm:w-auto flex-grow">
                   <div className="text-sm font-medium leading-none text-black">
                     <Searchinput />
@@ -245,7 +245,7 @@ const Navbar = ({ children }) => {
                 </div>
 
                 <Menu>
-                  <div className="flex justify-end w-full gap-6">
+                  <div className="flex justify-end w-full gap-5">
                     <div>
                       <Link to="/cart">
                         <button
