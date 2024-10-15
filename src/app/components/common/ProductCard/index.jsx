@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
             <img
               alt={product.name}
               src={product.thumbnail[0] || ""}
-              className="h-full w-full max-h-64 object-contain bg-gray-50 object-center lg:h-full lg:w-fit"
+              className="h-full w-full max-h-64 object-contain bg-gray-50 object-center lg:h-full "
             />
           </div>
           <div className="flex flex-col py-2 gap-1">
