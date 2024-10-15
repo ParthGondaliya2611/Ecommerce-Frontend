@@ -13,7 +13,7 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
-import Token from "../../../../utils/auth";
+import Token from "../../../../utils/Token";
 
 import {
   Bars3Icon,

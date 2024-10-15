@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Token from "../../utils/auth";
+import Token from "../../utils/Token";
 
 const DashboardPannel = () => {
   const token = Token();

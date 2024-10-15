@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import FetchcartData from "../.../../../../utils/cart";
-import Token from "../.../../../../utils/auth";
+import Token from "../.../../../../utils/Token";
 import { loadStripe } from "@stripe/stripe-js";
 import { toast } from "react-toastify";
 import { api } from "../.../../../../utils/api";

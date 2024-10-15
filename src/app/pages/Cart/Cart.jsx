@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NotFound from "../../components/common/ItemNotFound";
-import Token from "../../../utils/auth";
+import Token from "../../../utils/Token";
 import FetchcartData from "../../../utils/cart";
-import { toast } from "react-toastify";
 import { useCart } from "../../../context/CartContext";
 import { api } from "../../../utils/api";
 import Layout from "../../layout/Layout";

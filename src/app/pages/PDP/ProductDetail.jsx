@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { FaPlus } from "react-icons/fa";
 import { PiShoppingCartDuotone } from "react-icons/pi";
 import { FaMinus } from "react-icons/fa";
-import Token from "../../../utils/auth";
+import Token from "../../../utils/Token";
 import StarRatings from "react-star-ratings";
 import { api } from "../../../utils/api";
 import Layout from "../../layout/Layout";
