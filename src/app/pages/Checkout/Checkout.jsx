@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import FetchcartData from "../.../../../../utils/cart";
+import FetchcartData from "../../../utils/CartData";
 import Token from "../.../../../../utils/Token";
 import { loadStripe } from "@stripe/stripe-js";
 import { toast } from "react-toastify";

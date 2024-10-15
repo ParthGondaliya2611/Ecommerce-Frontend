@@ -22,7 +22,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import FetchcartData from "../../../../utils/cart";
+import FetchcartData from "../../../../utils/CartData";
 import Searchinput from "../SearchInput";
 import { useCart } from "../../../../context/CartContext";
 
