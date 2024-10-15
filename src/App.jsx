@@ -9,8 +9,6 @@ import CreateCategory from "./app/pages/Admin/CreateCategory";
 import CreateProduct from "./app/pages/Admin/CreateProduct";
 
 // Routes
-import PrivateRoute from "./app/components/routes/PrivateRoute";
-import PublicRoute from "./app/components/routes/PublicRoute";
 
 //pages
 import Login from "./app/pages/Auth/Login/Login";
@@ -24,6 +22,10 @@ import MyOrder from "./app/pages/MyOrders/MyOrder";
 import Service from "./app/pages/Services/Service";
 import Contact from "./app/pages/Contact/Contact";
 import { Cart } from "./app/pages/Cart/Cart";
+
+// routes
+import PublicRoute from "./app/components/routes/PublicRoute";
+import PrivateRoute from "./app/components/routes/PrivateRoute";
 
 function App() {
   return (
