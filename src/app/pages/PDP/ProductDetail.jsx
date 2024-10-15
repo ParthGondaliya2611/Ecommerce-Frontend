@@ -9,6 +9,7 @@ import StarRatings from "react-star-ratings";
 import { api } from "../../../utils/api";
 import Layout from "../../layout/Layout";
 import ProductCard from "../../components/common/ProductCard";
+import Loader from "../../components/common/Loader/Loader";
 
 const ProductDetail = () => {
   const token = Token();
@@ -16,6 +17,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [SimilarProducts, setSimilarProducts] = useState([]);
   const [plus, setplus] = useState(1);
+  const [loader, setLoader] = useState(false);
 
   const handleplus = () => {
     if (plus < 5) setplus(plus + 1);
@@ -38,9 +40,13 @@ const ProductDetail = () => {
   };
 
   const getsimilarProduct = async (pid, cid) => {
+    setLoader(true);
     try {
       const res = await fetch(`${api}/api/v1/similar-products/${pid}/${cid}`);
       const data = await res.json();
+      if (data.success) {
+        setLoader(false);
+      }
       setSimilarProducts(data.products);
     } catch (error) {
       console.log(error);
@@ -192,7 +198,11 @@ const ProductDetail = () => {
                 <div className="text-4xl py-2  pb-2 mt-2">
                   <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 lg:gap-x-6 xl:gap-x-6">
                     {SimilarProducts?.map((product, id) => {
-                      return <ProductCard product={product} key={id} />;
+                      return loader ? (
+                        <Loader />
+                      ) : (
+                        <ProductCard product={product} key={id} />
+                      );
                     })}
                   </div>
                 </div>
