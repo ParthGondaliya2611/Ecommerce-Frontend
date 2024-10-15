@@ -1,8 +1,8 @@
-import { api,  } from "./api";
+import { api } from "./api";
 
 const getcartproducts = async (token) => {
   try {
-    const res = await fetch( `${api}/api/v1/cart/getCart`, {
+    const res = await fetch(`${api}/api/v1/cart/getCart`, {
       method: "GET",
       headers: {
         Authorization: token?.token,

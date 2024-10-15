@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../Layout";
-import AdminMenu from "../layout/DashboardPannel";
+import Layout from "../../layout/Layout";
+import AdminMenu from "../../layout/DashboardPannel";
 import { toast } from "react-toastify";
-import CategoryForm from "../../components/Form/CategoryForm";
 import { api,  } from "../../../utils/api";
+import CategoryForm from "../../components/admin/CategoryForm";
 
 const CreateCategory = () => {
   const [categories, setcategory] = useState();

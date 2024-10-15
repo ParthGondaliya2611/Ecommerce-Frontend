@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import DashboardPannel from "../layout/DashboardPannel";
-import Layout from "../Layout";
-import Token from "../../../utils/Auth";
+import Token from "../../../utils/auth";
 
 import { toast } from "react-toastify";
-import logo from "../../img/mainlogo.png";
 import { api,  } from "../../../utils/api";
+import DashboardPannel from "../../layout/DashboardPannel";
+import Layout from "../../layout/Layout";
 
 const Dashboard = () => {
   const token=Token()
@@ -118,7 +117,7 @@ const Dashboard = () => {
                   <div className="text-center flex flex-col gap-5">
                     <img
                       alt="Your Company"
-                      src={logo}
+                      src="public/img/LOGO.png"
                       className="mx-auto h-20 "
                     />
                     <h2 className=" text-3xl font-bold text-gray-900">

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../Layout";
-import AdminMenu from "../layout/DashboardPannel";
+import Layout from "../../layout/Layout";
+import AdminMenu from "../../layout/DashboardPannel";
 import { toast } from "react-toastify";
-import ProductForm from "../../components/Form/ProductForm";
-import { api,  } from "../../../utils/api";
+import { api } from "../../../utils/api";
+import ProductForm from "../../components/admin/ProductForm";
 
 const CreateProduct = () => {
   const [Product, setProduct] = useState({
@@ -109,16 +109,13 @@ const CreateProduct = () => {
       }
     } else {
       try {
-        const response = await fetch(
-          `${api}/api/v1/create-product`,
-          {
-            method: "POST",
-            headers: {
-              Authorization: token,
-            },
-            body: formData,
-          }
-        );
+        const response = await fetch(`${api}/api/v1/create-product`, {
+          method: "POST",
+          headers: {
+            Authorization: token,
+          },
+          body: formData,
+        });
         const data = await response.json();
 
         if (data.success) {
@@ -135,16 +132,13 @@ const CreateProduct = () => {
   //delete product
   const deleteProduct = async (product) => {
     const token = JSON.parse(localStorage.getItem("auth")).token;
-    const res = await fetch(
-       `${api}/api/v1/delete-product/${product._id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-      }
-    );
+    const res = await fetch(`${api}/api/v1/delete-product/${product._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    });
     const data = await res.json();
     if (data.success) {
       toast.success("Product deleted Successfully");
