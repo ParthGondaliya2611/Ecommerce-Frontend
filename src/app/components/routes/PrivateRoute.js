@@ -1,9 +1,9 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import Token from "../../../utils/auth"
+import Auth from "../../../utils/auth"
 
 const PrivateRoute = () => {
-  const token = Token();
+  const token = Auth();
 
   return token?.token ? <Outlet /> : <Navigate to="/login" />;
 };
