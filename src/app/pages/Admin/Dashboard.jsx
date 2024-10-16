@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import Token from "../../../utils/Token";
 
 import { toast } from "react-toastify";
-import { api,  } from "../../../utils/api";
+import { api } from "../../../utils/api";
 import DashboardPannel from "../../layout/DashboardPannel";
 import Layout from "../../layout/Layout";
 
 const Dashboard = () => {
-  const token=Token()
+  const token = Token();
   const [Register, setRegister] = useState({
     name: "",
     email: "",
@@ -16,8 +16,6 @@ const Dashboard = () => {
   });
   const [Value, setValue] = useState({});
   const [Update, setUpdate] = useState(false);
-
-
 
   const handleinput = (e) => {
     e.preventDefault();
@@ -30,7 +28,7 @@ const Dashboard = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-         `${api}/api/v1/auth/update-User/${token?.user.id}`,
+        `${api}/api/v1/auth/update-User/${token?.user.id}`,
         {
           method: "PUT",
           headers: {
@@ -51,16 +49,13 @@ const Dashboard = () => {
 
   const singleUser = async () => {
     try {
-      const response = await fetch(
-         `${api}/api/v1/auth/singleUser`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token.token,
-          },
-        }
-      );
+      const response = await fetch(`${api}/api/v1/auth/singleUser`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token.token,
+        },
+      });
       const data = await response.json();
       setValue(data.user);
       setUpdate(false);
@@ -117,7 +112,7 @@ const Dashboard = () => {
                   <div className="text-center flex flex-col gap-5">
                     <img
                       alt="Your Company"
-                      src="public/img/LOGO.png"
+                      src="/img/mainlogo.png"
                       className="mx-auto h-20 "
                     />
                     <h2 className=" text-3xl font-bold text-gray-900">

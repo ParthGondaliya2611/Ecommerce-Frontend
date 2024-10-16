@@ -96,7 +96,7 @@ const MyOrder = () => {
                                   <h4>
                                     <p>
                                       status:{" "}
-                                      {order.status === "Panding " ? (
+                                      {order.status === "Pending" ? (
                                         <>🟠 {order.status}</>
                                       ) : (
                                         <>🔴{order.status}</>

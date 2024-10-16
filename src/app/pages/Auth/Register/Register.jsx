@@ -42,6 +42,7 @@ const Register = () => {
         "auth",
         JSON.stringify({ token: data.token, user: data.user })
       );
+      console.log(data)
       if (data.success) {
         toast.success("Register successfully");
         navigate("/login");

@@ -5,7 +5,7 @@ const ProductForm = ({ data, handleinput, createproduct, id, handlefile }) => {
   return (
     <>
       <div className="w-full flex flex-col gap-5">
-        <img alt="Your Company" src="/img/LOGO.png" className="mx-auto h-20 w-auto" />
+        <img alt="Your Company" src="/img/mainlogo.png" className="mx-auto h-20 w-auto" />
         <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           {id ? "Update" : "Create New"} Product
         </h2>
