@@ -391,7 +391,13 @@ const AllProductList = () => {
                     {/* laptop screen  */}
 
                     {/* Product Grid */}
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-10 m-auto ">
+                    <div
+                      className={
+                        products.length === 0
+                          ? `flex justify-center items-center w-screen`
+                          : `mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-10 m-auto `
+                      }
+                    >
                       {products.length === 0 && loader === false ? (
                         <div className="text-center ">
                           <h2 className="text-2xl font-semibold mt-4">
@@ -405,7 +411,7 @@ const AllProductList = () => {
                       ) : (
                         <>
                           {products?.map((product, id) => {
-                            return loader  ? (
+                            return loader ? (
                               <Loader />
                             ) : (
                               <ProductCard product={product} id={id} key={id} />
