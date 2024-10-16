@@ -1,1 +1,1 @@
-export const api = "http://localhost:3030";
+export const api = "swiftpick-backend.vercel.app";
