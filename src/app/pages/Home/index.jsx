@@ -19,7 +19,7 @@ const Home = () => {
   const [checked] = useState([]);
   const [page] = useState(1);
   const [perpage] = useState(14);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   const filterProducts = async () => {
     setLoader(true);

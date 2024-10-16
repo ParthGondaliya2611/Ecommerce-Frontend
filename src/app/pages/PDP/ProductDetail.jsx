@@ -17,7 +17,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [SimilarProducts, setSimilarProducts] = useState([]);
   const [plus, setplus] = useState(1);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   const handleplus = () => {
     if (plus < 5) setplus(plus + 1);

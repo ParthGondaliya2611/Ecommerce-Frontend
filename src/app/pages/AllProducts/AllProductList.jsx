@@ -22,7 +22,7 @@ const AllProductList = () => {
   const [perpage] = useState(20);
   const { slug } = useParams();
   const [open, setOpen] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
