@@ -172,7 +172,7 @@ const Home = () => {
         </div>
         <div className="mt-6 py-2 grid grid-cols-1 gap-x-8  gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 lg:grid-cols-4   lg:gap-x-8 xl:gap-x-8  ">
           {products?.map((product, id) => {
-            return loader ? (
+            return !loader ? (
               <Loader />
             ) : (
               <ProductCard product={product} key={id} />

@@ -2,13 +2,10 @@ import React from "react";
 
 const Loader = () => {
   return (
-    <div
-      role="status"
-      className="max-w-sm w-80 sm:w-56 p-4 rounded border shadow animate-pulse md:p-6 dark:border-gray-400"
-    >
-      <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-300">
+    <div className="group relative bg-gray-50 max-w-96 mx-auto max-h-96 px-4 py-2 border shadow-md rounded animate-pulse">
+      <div className="aspect-w-1 aspect-h-1 h-56 w-56 overflow-hidden rounded-md group-hover:opacity-75 flex items-center justify-center mx-auto">
         <svg
-          className="w-10 h-10 text-gray-200 dark:text-gray-300"
+          className="w-24 h-24 text-gray-200 dark:text-gray-300 ml-[25%] mt-[25%]"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -18,11 +15,14 @@ const Loader = () => {
           <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
         </svg>
       </div>
-      <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-300 max-w-28 mb-4"></div>
-      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 max-w-52 mb-2.5"></div>
-      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 max-w-40 mb-2.5"></div>
-      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300"></div>
-      
+
+      <div className="flex flex-col py-2 gap-1">
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-300 max-w-28 mb-4"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 max-w-52 mb-2.5"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 max-w-40 mb-2.5"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300"></div>
+      </div>
+
       <span className="sr-only">Loading...</span>
     </div>
   );

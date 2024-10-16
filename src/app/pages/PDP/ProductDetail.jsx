@@ -45,9 +45,9 @@ const ProductDetail = () => {
       const res = await fetch(`${api}/api/v1/similar-products/${pid}/${cid}`);
       const data = await res.json();
       if (data.success) {
+        setSimilarProducts(data.products);
         setLoader(false);
       }
-      setSimilarProducts(data.products);
     } catch (error) {
       console.log(error);
     }
@@ -191,25 +191,25 @@ const ProductDetail = () => {
                 </div>
               </div>
             </div>
-            <div className="lg:col-span-3 mt-4 text-2xl font-semibold">
-              <h6 className="text-left">Similar Products</h6>
-              {/*This is Product List Page*/}
-              <div className="md:mx-auto">
-                <div className="text-4xl py-2  pb-2 mt-2">
-                <div className="mt-6 py-2 grid grid-cols-1 gap-x-8  gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 lg:grid-cols-4   lg:gap-x-8 xl:gap-x-8  ">
-                    {SimilarProducts?.map((product, id) => {
-                      return loader ? (
-                        <Loader key={id} />
-                      ) : (
-                        <ProductCard product={product} key={id} />
-                      );
-
-                      
-                    })}
+            {!loader && SimilarProducts?.length <= 0 ? null : (
+              <div className="lg:col-span-3 mt-4 text-2xl font-semibold">
+                <h6 className="text-left">Similar Products</h6>
+                {/*This is Product List Page*/}
+                <div className="md:mx-auto">
+                  <div className="text-4xl py-2  pb-2 mt-2">
+                    <div className="mt-6 py-2 grid grid-cols-1 gap-x-8  gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 lg:grid-cols-4   lg:gap-x-8 xl:gap-x-8  ">
+                      {SimilarProducts?.map((product, id) => {
+                        return loader ? (
+                          <Loader key={id} />
+                        ) : (
+                          <ProductCard product={product} key={id} />
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </Layout>
