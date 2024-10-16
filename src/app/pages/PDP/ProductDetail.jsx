@@ -61,7 +61,7 @@ const ProductDetail = () => {
   //add to cart
   const Addcart = async () => {
     try {
-      const response = await fetch(`${api}4/api/v1/cart/AddProduct`, {
+      const response = await fetch(`${api}/api/v1/cart/AddProduct`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
