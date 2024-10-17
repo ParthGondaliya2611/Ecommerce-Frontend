@@ -121,6 +121,8 @@ const AllProductList = () => {
       );
 
       const data = await res.json();
+      console.log(data.products);
+
       if (data.success) {
         setLoader(false);
       }
@@ -133,7 +135,6 @@ const AllProductList = () => {
 
   useEffect(() => {
     filterProducts(categoryfilter, pricefilter);
-
     // eslint-disable-next-line
   }, [categoryfilter, pricefilter, page]);
 
@@ -412,7 +413,7 @@ const AllProductList = () => {
                         <>
                           {products?.map((product, id) => {
                             return loader ? (
-                              <Loader />
+                              <Loader key={id}/>
                             ) : (
                               <ProductCard product={product} id={id} key={id} />
                             );
