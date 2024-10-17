@@ -5,13 +5,15 @@ import { toast } from "react-toastify";
 import { api } from "../../../utils/api";
 import DashboardPannel from "../../layout/DashboardPannel";
 import Layout from "../../layout/Layout";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const token = Token();
+  const navigate = useNavigate();
   const [Register, setRegister] = useState({
     name: "",
     email: "",
-    address: "",
+    role: "",
     phone: "",
   });
   const [Value, setValue] = useState({});
@@ -39,7 +41,9 @@ const Dashboard = () => {
         }
       );
       if (response.ok) {
-        toast.success("User updated successfully");
+        localStorage.removeItem("auth");
+        toast.success("User updated successfully Please Login in Again !");
+        navigate("/login");
         setUpdate(true);
       }
     } catch (error) {
@@ -94,14 +98,12 @@ const Dashboard = () => {
                     {Value.email}
                   </li>
                   <li className="bg-gray-100 p-4 rounded-lg border border-gray-300">
-                    <span className="font-semibold text-gray-700">
-                      Address:
-                    </span>{" "}
-                    {Value.address}
-                  </li>
-                  <li className="bg-gray-100 p-4 rounded-lg border border-gray-300">
                     <span className="font-semibold text-gray-700">Phone:</span>{" "}
                     {Value.phone}
+                  </li>
+                  <li className="bg-gray-100 p-4 rounded-lg border border-gray-300">
+                    <span className="font-semibold text-gray-700">Role:</span>{" "}
+                    {Value.role}
                   </li>
                 </ul>
               </div>
@@ -184,18 +186,18 @@ const Dashboard = () => {
 
                       <div>
                         <label
-                          htmlFor="address"
+                          htmlFor="role"
                           className="block text-sm font-medium text-gray-900"
                         >
-                          Address
+                          role
                         </label>
                         <div className="mt-2">
                           <input
-                            name="address"
+                            name="role"
                             required
                             type="text"
-                            placeholder="Enter Address"
-                            value={Register.address}
+                            placeholder="Enter role"
+                            value={Register.role}
                             onChange={handleinput}
                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                           />
