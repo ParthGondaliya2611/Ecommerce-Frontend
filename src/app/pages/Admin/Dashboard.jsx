@@ -17,7 +17,7 @@ const Dashboard = () => {
     phone: "",
   });
   const [Value, setValue] = useState({});
-  const [Update, setUpdate] = useState(false);
+  const [update, setUpdate] = useState(false);
 
   const handleinput = (e) => {
     e.preventDefault();
@@ -70,7 +70,7 @@ const Dashboard = () => {
   };
   useEffect(() => {
     singleUser();
-  }, [Update]);
+  }, [update]);
 
   return (
     <>

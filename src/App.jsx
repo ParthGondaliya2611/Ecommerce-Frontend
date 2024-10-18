@@ -14,7 +14,6 @@ import CreateProduct from "./app/pages/Admin/CreateProduct";
 import Login from "./app/pages/Auth/Login/Login";
 import Checkout from "./app/pages/Checkout/Checkout";
 import ProductDetail from "./app/pages/PDP/ProductDetail";
-import ForgotPassword from "./app/pages/Auth/ForgetPassword/ForgotPassword";
 import Search from "./app/pages/Search/Search";
 import Register from "./app/pages/Auth/Register/Register";
 import AllProductList from "./app/pages/AllProducts/AllProductList";
@@ -26,6 +25,8 @@ import { Cart } from "./app/pages/Cart/Cart";
 // routes
 import PublicRoute from "./app/components/routes/PublicRoute";
 import PrivateRoute from "./app/components/routes/PrivateRoute";
+import ResetPassword from "./app/pages/Auth/ForgetPassword/ResetPassword";
+import ForgetPasswordLink from "./app/pages/Auth/ForgetPassword/ForgetPasswordLink";
 
 function App() {
   return (
@@ -43,13 +44,14 @@ function App() {
       <Route element={<PublicRoute />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
       </Route>
 
       {/* Other routes */}
       <Route path="/" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/services" element={<Service />} />
+      <Route path="/forgetpasswordlink" element={<ForgetPasswordLink />} />
+      <Route path="/resetpassword/:token" element={<ResetPassword />} />
       <Route path="/products/:slug" element={<AllProductList />} />
       <Route path="*" element={<PagenotFound />} />
       <Route path="/search" element={<Search />} />

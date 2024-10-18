@@ -97,12 +97,9 @@ export function Login() {
                     Password
                   </label>
                   <div className="text-sm">
-                    <NavLink
-                      to="/forgotpassword"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    >
-                      Forgot password?
-                    </NavLink>
+                   <NavLink to="/forgetpasswordlink" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                      Forget Password?
+                   </NavLink>
                   </div>
                 </div>
                 <div className="mt-2">
