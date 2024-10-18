@@ -1,1 +1,1 @@
-export const api = "https://swiftpick-backend.vercel.app";
+export const api = "https://swiftpick-backend.vercel.app/";
