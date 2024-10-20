@@ -16,6 +16,7 @@ export function Cart() {
   const [cartloader, setCartLoader] = useState(true);
 
   const getcartProduct = async () => {
+    setCartLoader(true);
     const data = await FetchcartData(token);
     if (data.success) {
       setCartLoader(false);

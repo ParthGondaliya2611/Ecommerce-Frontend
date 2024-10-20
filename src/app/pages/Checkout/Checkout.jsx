@@ -34,6 +34,7 @@ const Checkout = () => {
   const [checkoutloader, setCheckoutLoader] = useState(true);
 
   const getcartproduct = async () => {
+    setCheckoutLoader(true);
     try {
       const data = await FetchcartData(token);
       if (data.success) {
