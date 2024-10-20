@@ -8,7 +8,7 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { api } from "../../../utils/api";
 import { Prices } from "../../data/PricesFilterData";
 import Layout from "../../layout/Layout";
-import Loader from "../../components/common/Loader/Loader";
+import ProductCardLoader from "../../components/common/Loader/ProductCardLoader";
 
 const AllProductList = () => {
   const [products, setproducts] = useState([]);
@@ -22,7 +22,7 @@ const AllProductList = () => {
   const [perpage] = useState(20);
   const { slug } = useParams();
   const [open, setOpen] = useState(false);
-  const [loader, setLoader] = useState(true);
+  const [productloader, setProductLoader] = useState(true);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -114,7 +114,7 @@ const AllProductList = () => {
     selectedCategories = categoryfilter,
     selectedPrices = pricefilter
   ) => {
-    setLoader(true);
+    setProductLoader(true);
     try {
       const res = await fetch(
         `${api}/api/v1/products?checked=${selectedCategories}&filters=${selectedPrices}&perpage=${perpage}&page=${page}`
@@ -124,7 +124,7 @@ const AllProductList = () => {
       console.log(data.products);
 
       if (data.success) {
-        setLoader(false);
+        setProductLoader(false);
       }
       setproducts(data.products);
       setProductTotal(data.count);
@@ -399,7 +399,7 @@ const AllProductList = () => {
                           : `mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-10 m-auto `
                       }
                     >
-                      {products.length === 0 && loader === false ? (
+                      {products.length === 0 && productloader === false ? (
                         <div className="text-center ">
                           <h2 className="text-2xl font-semibold mt-4">
                             Product Not Found
@@ -412,8 +412,8 @@ const AllProductList = () => {
                       ) : (
                         <>
                           {products?.map((product, id) => {
-                            return loader ? (
-                              <Loader key={id}/>
+                            return productloader ? (
+                              <ProductCardLoader key={id} />
                             ) : (
                               <ProductCard product={product} id={id} key={id} />
                             );

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Loader = () => {
+const ProductCardLoader = () => {
   return (
     <div className="group relative bg-gray-50 max-w-96 mx-auto max-h-96 px-4 py-2 border shadow-md rounded animate-pulse">
       <div className="aspect-w-1 aspect-h-1 h-56 w-56 overflow-hidden rounded-md group-hover:opacity-75 flex items-center justify-center mx-auto">
@@ -28,4 +28,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default ProductCardLoader;

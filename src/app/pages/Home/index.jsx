@@ -13,7 +13,7 @@ import { api } from "../../../utils/api";
 import Layout from "../../layout/Layout";
 import { slides } from "../../data/HomePageData";
 import { categoryphotos } from "../../data/HomePageData";
-import Loader from "../../components/common/Loader/Loader";
+import ProductCardLoader from "../../components/common/Loader/ProductCardLoader";
 
 const Home = () => {
   const [products, setproducts] = useState([]);
@@ -21,17 +21,17 @@ const Home = () => {
   const [checked] = useState([]);
   const [page] = useState(1);
   const [perpage] = useState(14);
-  const [loader, setLoader] = useState(true);
+  const [productloader, setProductLoader] = useState(true);
 
   const filterProducts = async () => {
-    setLoader(true);
+    setProductLoader(true);
     try {
       const res = await fetch(
         `${api}/api/v1/products?checked=${checked}&filters=${filters}&perpage=${perpage}&page=${page}`
       );
       const data = await res.json();
       if (data.success) {
-        setLoader(false);
+        setProductLoader(false);
       }
       setproducts(data.products);
     } catch (error) {
@@ -115,8 +115,8 @@ const Home = () => {
         </div>
         <div className="mt-6 py-2 grid grid-cols-1 gap-x-8  gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 lg:grid-cols-4   lg:gap-x-8 xl:gap-x-8  ">
           {products?.map((product, id) => {
-            return loader ? (
-              <Loader />
+            return productloader ? (
+              <ProductCardLoader />
             ) : (
               <ProductCard product={product} key={id} />
             );
