@@ -11,8 +11,6 @@ import {
 import { MdDashboard } from "react-icons/md";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-import { FaUserCircle } from "react-icons/fa";
-import { TbLogout2 } from "react-icons/tb";
 import Token from "../../../../utils/Token";
 
 import {
@@ -192,7 +190,6 @@ const Navbar = ({ children }) => {
                             >
                               <h1 className="flex  items-center gap-2">
                                 {" "}
-                                <FaUserCircle className="text-xl text-green-400" />
                                 Register
                               </h1>
                             </NavLink>
@@ -204,7 +201,6 @@ const Navbar = ({ children }) => {
                             >
                               <h1 className="flex  items-center gap-2">
                                 {" "}
-                                <TbLogout2 className="text-xl text-green-500" />
                                 Login
                               </h1>
                             </NavLink>
@@ -331,7 +327,6 @@ const Navbar = ({ children }) => {
                           >
                             <h1 className="flex  items-center gap-2">
                               {" "}
-                              <FaUserCircle className="text-xl text-green-400" />
                               Register
                             </h1>
                           </NavLink>
@@ -341,11 +336,7 @@ const Navbar = ({ children }) => {
                             to="/login"
                             className="block px-4 py-2 text-sm text-black font-medium data-[focus]:bg-gray-100 data-[focus]:text-gray-900 "
                           >
-                            <h1 className="flex  items-center gap-2">
-                              {" "}
-                              <TbLogout2 className="text-xl text-green-500" />
-                              Login
-                            </h1>
+                            <h1 className="flex  items-center gap-2"> Login</h1>
                           </NavLink>
                         </MenuItem>
                       </div>

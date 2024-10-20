@@ -41,7 +41,7 @@ const Searchinput = () => {
               onChange={(e) =>
                 setvalues({ ...values, keyword: e.target.value })
               }
-              className="block tracking-wide   text-md text-black  rounded-l-md border border-black-300  px-5 focus:ring-indigo-500 focus:border-indigo-500  dark:border-gray-600 font-semibold dark:placeholder-black dark:text-black dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+              className="block tracking-wide max-sm:w-48 w-sm mg:w-full text-md text-black  rounded-l-md border border-black-300  px-5 focus:ring-indigo-500 focus:border-indigo-500  dark:border-gray-600 font-semibold dark:placeholder-black dark:text-black dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
               placeholder="Search Products…"
             />
             <button
