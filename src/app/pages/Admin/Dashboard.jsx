@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Token from "../../../utils/Token";
 
-import { toast } from "react-toastify";
 import { api } from "../../../utils/api";
 import DashboardPannel from "../../layout/DashboardPannel";
 import Layout from "../../layout/Layout";
-import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const token = Token();
-  const navigate = useNavigate();
   const [Register, setRegister] = useState({
     name: "",
     email: "",
@@ -18,6 +15,7 @@ const Dashboard = () => {
   });
   const [Value, setValue] = useState({});
   const [update, setUpdate] = useState(false);
+  const [role, setRole] = useState();
 
   const handleinput = (e) => {
     e.preventDefault();
@@ -41,9 +39,6 @@ const Dashboard = () => {
         }
       );
       if (response.ok) {
-        localStorage.removeItem("auth");
-        toast.success("User updated successfully Please Login in Again !");
-        navigate("/login");
         setUpdate(true);
       }
     } catch (error) {
@@ -61,6 +56,7 @@ const Dashboard = () => {
         },
       });
       const data = await response.json();
+      setRole(data?.user?.role);
       setValue(data.user);
       setUpdate(false);
       setRegister(data.user);
@@ -78,7 +74,7 @@ const Dashboard = () => {
         <div className="sm:px-10 px-4">
           <div className="w-full mt-10 text-center">
             <div>
-              <DashboardPannel />
+              <DashboardPannel Role={role} />
             </div>
           </div>
 

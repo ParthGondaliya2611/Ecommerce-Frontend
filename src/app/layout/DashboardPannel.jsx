@@ -1,21 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Token from "../../utils/Token";
 
-const DashboardPannel = () => {
-  const token = Token();
+const DashboardPannel = ({Role}) => {
   return (
     <>
       <div className="flex items-center justify-between border-indigo-500 border-2 text-black bg-indigo-50  rounded-md px-3 py-1">
         <div className="text-left ">
           <Link to="/dashboard">
             <h4 className="text-lg mg:text-2xl  font-bold">
-              {token?.user?.role === "Admin" ? "Admin Panel" : "User Panel"}
+              {Role === "Admin" ? "Admin Panel" : "User Panel"}
             </h4>
           </Link>
         </div>
         <div className="flex space-x-4">
-          {token?.user?.role === "Admin" ? (
+          {Role === "Admin" ? (
             <>
               <Link
                 to="/dashboard/create-category"

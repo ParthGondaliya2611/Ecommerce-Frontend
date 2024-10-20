@@ -75,10 +75,8 @@ const CreateProduct = () => {
     const formData = new FormData();
     console.log(files);
     files.forEach((file) => {
-      formData.append("thumbnail", file); // Using the same name for all images
+      formData.append("thumbnail", file); 
     });
-    // formData.append("thumbnail", Product.thumbnail);
-
     formData.append("name", Product.name);
     formData.append("description", Product.description);
     formData.append("price", Product.price);
