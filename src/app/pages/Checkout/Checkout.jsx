@@ -10,6 +10,7 @@ import { api } from "../.../../../../utils/api";
 import Layout from "../../layout/Layout";
 import CreateAddressForm from "../../components/address/CreateAddressForm";
 import AddressData from "../../components/address/AddressCard";
+import CartLoader from "../../components/common/Loader/CartLoader";
 
 const Checkout = () => {
   const [Address, setAddress] = useState({
@@ -30,10 +31,14 @@ const Checkout = () => {
   const [selectedAddress, setSelectedAddress] = useState();
   const [total, setTotal] = useState(0);
   const [paymentmethod, setPaymentMethod] = useState("cash");
+  const [checkoutloader, setCheckoutLoader] = useState(true);
 
   const getcartproduct = async () => {
     try {
       const data = await FetchcartData(token);
+      if (data.success) {
+        setCheckoutLoader(false);
+      }
       setProductsData(data?.cart?.products);
 
       const subtotal = data.cart.products.reduce((accumulator, product) => {
@@ -326,52 +331,73 @@ const Checkout = () => {
                     Cart
                   </h1>
                   <div className="flow-root">
-                    <ul className="-my-6 divide-y divide-gray-200">
-                      {productdata?.map((products) => (
-                        <li key={products.product?._id} className="flex py-6">
-                          <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                            <img
-                              alt="Productimg"
-                              src={products.product?.thumbnail[0]}
-                              className="h-full w-full object-cover object-center"
-                            />
-                          </div>
+                    <ul className="divide-y divide-gray-200">
+                      {productdata?.map((products) => {
+                        return checkoutloader ? (
+                          <CartLoader />
+                        ) : (
+                          <li key={products.product?._id} className="flex py-6">
+                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                              <img
+                                alt="Productimg"
+                                src={products.product?.thumbnail[0]}
+                                className="h-full w-full object-cover object-center"
+                              />
+                            </div>
 
-                          <div className="ml-4 flex flex-1 flex-col ">
-                            <div>
-                              <div className="flex justify-between text-base font-medium text-gray-900">
-                                <h3>
-                                  <p>{products.product?.name}</p>
-                                </h3>
-                                <p className="ml-4">
-                                  ${products.product?.pricediscount}
+                            <div className="ml-4 flex flex-1 flex-col ">
+                              <div>
+                                <div className="flex justify-between text-base font-medium text-gray-900">
+                                  <h3>
+                                    <p>{products.product?.name}</p>
+                                  </h3>
+                                  <p className="ml-4">
+                                    ${products.product?.pricediscount}
+                                  </p>
+                                </div>
+                                <p className="mt-1 text-sm text-gray-500">
+                                  {/* {p.color} */}
                                 </p>
                               </div>
-                              <p className="mt-1 text-sm text-gray-500">
-                                {/* {p.color} */}
-                              </p>
-                            </div>
-                            <div className="flex flex-1 items-end justify-between text-sm">
-                              <div className=" text-gray-500">
-                                <label
-                                  htmlFor="quantity"
-                                  className="mr-5 inline  text-sm font-medium leading-6 text-gray-900"
-                                >
-                                  Qty : {products?.quantity}
-                                </label>
+                              <div className="flex flex-1 items-end justify-between text-sm">
+                                <div className=" text-gray-500">
+                                  <label
+                                    htmlFor="quantity"
+                                    className="mr-5 inline  text-sm font-medium leading-6 text-gray-900"
+                                  >
+                                    Qty : {products?.quantity}
+                                  </label>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </li>
-                      ))}
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 </div>
 
-                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 ">
+                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                   <div className="flex justify-between text-base font-medium text-gray-900">
-                    <p>Subtotal</p>
-                    <p>${total}</p>
+                    {checkoutloader ? (
+                      <div className="animate-pulse w-full">
+                        {/* Subtotal Skeleton */}
+                        <div className="flex justify-between text-base font-medium text-gray-900">
+                          <div className="h-4 bg-gray-200 rounded-full w-20"></div>
+                          <div className="h-4 bg-gray-200 rounded-full w-24 sm:w-32 lg:w-40"></div>
+                        </div>
+
+                        {/* Shipping and Taxes Info Skeleton */}
+                        <div className="mt-0.5">
+                          <div className="h-3 bg-gray-200 rounded-full w-48"></div>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        <p>Subtotal</p>
+                        <p>${total}</p>
+                      </>
+                    )}
                   </div>
                   <p className="mt-0.5 text-sm text-gray-500">
                     Shipping and taxes calculated at checkout.
