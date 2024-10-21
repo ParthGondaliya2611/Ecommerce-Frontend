@@ -3,8 +3,8 @@ import React from "react";
 const CartLoader = () => {
   return (
     <div className="flow-root">
-      <ul className="-my-6 divide-y divide-gray-200">
-        {[...Array(3)].map((_, id) => (
+      <ul className="-my- divide-y  divide-gray-200">
+        {[...Array(2)].map((_, id) => (
           <li key={id} className="flex py-6 animate-pulse">
             {/* Product Image Skeleton */}
             <div className="h-24 w-24 flex-shrink-0 bg-gray-200 rounded-md border border-gray-300"></div>

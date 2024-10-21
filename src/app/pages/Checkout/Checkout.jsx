@@ -331,51 +331,56 @@ const Checkout = () => {
                   <h1 className="text-4xl text-start my-4   font-bold tracking-tight text-gray-900">
                     Cart
                   </h1>
-                  <div className="flow-root">
-                    <ul className="divide-y divide-gray-200">
-                      {productdata?.map((products) => {
-                        return checkoutloader ? (
-                          <CartLoader />
-                        ) : (
-                          <li key={products.product?._id} className="flex py-6">
-                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                              <img
-                                alt="Productimg"
-                                src={products.product?.thumbnail[0]}
-                                className="h-full w-full object-cover object-center"
-                              />
-                            </div>
+                  {checkoutloader ? (
+                    <CartLoader />
+                  ) : (
+                    <div className="flow-root">
+                      <ul className="divide-y  divide-gray-200">
+                        {productdata?.map((products) => {
+                          return (
+                            <li
+                              key={products.product?._id}
+                              className="flex py-6"
+                            >
+                              <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                <img
+                                  alt="Productimg"
+                                  src={products.product?.thumbnail[0]}
+                                  className="h-full w-full object-cover object-center"
+                                />
+                              </div>
 
-                            <div className="ml-4 flex flex-1 flex-col ">
-                              <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
-                                  <h3>
-                                    <p>{products.product?.name}</p>
-                                  </h3>
-                                  <p className="ml-4">
-                                    ${products.product?.pricediscount}
+                              <div className="ml-4 flex flex-1 flex-col ">
+                                <div>
+                                  <div className="flex justify-between text-base font-medium text-gray-900">
+                                    <h3>
+                                      <p>{products.product?.name}</p>
+                                    </h3>
+                                    <p className="ml-4">
+                                      ${products.product?.pricediscount}
+                                    </p>
+                                  </div>
+                                  <p className="mt-1 text-sm text-gray-500">
+                                    {/* {p.color} */}
                                   </p>
                                 </div>
-                                <p className="mt-1 text-sm text-gray-500">
-                                  {/* {p.color} */}
-                                </p>
-                              </div>
-                              <div className="flex flex-1 items-end justify-between text-sm">
-                                <div className=" text-gray-500">
-                                  <label
-                                    htmlFor="quantity"
-                                    className="mr-5 inline  text-sm font-medium leading-6 text-gray-900"
-                                  >
-                                    Qty : {products?.quantity}
-                                  </label>
+                                <div className="flex flex-1 items-end justify-between text-sm">
+                                  <div className=" text-gray-500">
+                                    <label
+                                      htmlFor="quantity"
+                                      className="mr-5 inline  text-sm font-medium leading-6 text-gray-900"
+                                    >
+                                      Qty : {products?.quantity}
+                                    </label>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">

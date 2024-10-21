@@ -29,6 +29,7 @@ export function Cart() {
     setProductData(data?.cart?.products);
     setcart(data?.cart?.products?.length);
   };
+  console.log(cartloader);
 
   useEffect(() => {
     getcartProduct();
@@ -61,84 +62,82 @@ export function Cart() {
               Cart
             </h1>
             {token?.token ? (
-              productsdata?.length > 0 ? (
-                cartloader ? (
-                  <CartLoader />
-                ) : (
-                  <div className="flow-root">
-                    <ul className="-my-6 divide-y divide-gray-200">
-                      {productsdata?.map((products, id) => {
-                        return (
-                          <li key={id} className="flex py-6">
-                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                              <img
-                                src={products.product?.thumbnail[0]}
-                                alt={products.product?.thumbnail[0]}
-                                className="h-full w-full object-cover object-center"
-                              />
-                            </div>
-                            <div className="ml-4 flex flex-1 flex-col">
-                              <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
-                                  <h3>
-                                    <a href={products.product?.href}>
-                                      {products.product?.name}
-                                    </a>
-                                  </h3>
-                                  <p className="ml-4">
-                                    ${" "}
-                                    {(
-                                      products.product?.pricediscount *
-                                      products.quantity
-                                    ).toFixed(2)}
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="flex flex-1 items-end justify-between text-sm">
-                                <div className="text-gray-500">
-                                  <label
-                                    htmlFor="quantity"
-                                    className="mr-5 inline text-sm font-medium leading-6 text-gray-900"
-                                  >
-                                    Qty:{products.quantity}
-                                  </label>
-                                  <select
-                                    value={
-                                      products.quantity ? products.quantity : 1
-                                    }
-                                    onChange={(e) => {
-                                      const newQuantity = parseInt(
-                                        e.target.value
-                                      );
-                                      filterCart(products._id, newQuantity);
-                                    }}
-                                  >
-                                    {[1, 2, 3, 4, 5].map((qty) => (
-                                      <option key={qty} value={qty}>
-                                        {qty}
-                                      </option>
-                                    ))}
-                                  </select>
-                                </div>
-                                <div className="flex">
-                                  <button
-                                    type="button"
-                                    className="font-medium text-indigo-600 hover:text-indigo-500"
-                                    onClick={() =>
-                                      filterCart(products.product._id)
-                                    }
-                                  >
-                                    Remove
-                                  </button>
-                                </div>
+              productsdata?.length > 0 && !cartloader ? (
+                <div className="flow-root">
+                  <ul className="-my-6 divide-y divide-gray-200">
+                    {productsdata?.map((products, id) => {
+                      return (
+                        <li key={id} className="flex py-6">
+                          <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                            <img
+                              src={products.product?.thumbnail[0]}
+                              alt={products.product?.thumbnail[0]}
+                              className="h-full w-full object-cover object-center"
+                            />
+                          </div>
+                          <div className="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div className="flex justify-between text-base font-medium text-gray-900">
+                                <h3>
+                                  <a href={products.product?.href}>
+                                    {products.product?.name}
+                                  </a>
+                                </h3>
+                                <p className="ml-4">
+                                  ${" "}
+                                  {(
+                                    products.product?.pricediscount *
+                                    products.quantity
+                                  ).toFixed(2)}
+                                </p>
                               </div>
                             </div>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                )
+                            <div className="flex flex-1 items-end justify-between text-sm">
+                              <div className="text-gray-500">
+                                <label
+                                  htmlFor="quantity"
+                                  className="mr-5 inline text-sm font-medium leading-6 text-gray-900"
+                                >
+                                  Qty:{products.quantity}
+                                </label>
+                                <select
+                                  value={
+                                    products.quantity ? products.quantity : 1
+                                  }
+                                  onChange={(e) => {
+                                    const newQuantity = parseInt(
+                                      e.target.value
+                                    );
+                                    filterCart(products._id, newQuantity);
+                                  }}
+                                >
+                                  {[1, 2, 3, 4, 5].map((qty) => (
+                                    <option key={qty} value={qty}>
+                                      {qty}
+                                    </option>
+                                  ))}
+                                </select>
+                              </div>
+                              <div className="flex">
+                                <button
+                                  type="button"
+                                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                                  onClick={() =>
+                                    filterCart(products.product._id)
+                                  }
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ) : cartloader ? (
+                <CartLoader />
               ) : (
                 <>
                   <div className="flex justify-center items-center">
