@@ -27,6 +27,7 @@ import PublicRoute from "./app/components/routes/PublicRoute";
 import PrivateRoute from "./app/components/routes/PrivateRoute";
 import ResetPassword from "./app/pages/Auth/ForgetPassword/ResetPassword";
 import ForgetPasswordLink from "./app/pages/Auth/ForgetPassword/ForgetPasswordLink";
+import AdminRoute from "./app/components/routes/AdminRoute";
 
 function App() {
   return (
@@ -34,8 +35,6 @@ function App() {
       {/* Private routes */}
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/dashboard/create-category" element={<CreateCategory />} />
-        <Route path="/dashboard/create-product" element={<CreateProduct />} />
         <Route path="/YourOrder" element={<MyOrder />} />
         <Route path="/Checkout" element={<Checkout />} />
       </Route>
@@ -44,6 +43,12 @@ function App() {
       <Route element={<PublicRoute />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+      </Route>
+
+      {/* AdminPAnnel Routes */}
+      <Route element={<AdminRoute />}>
+        <Route path="/dashboard/create-category" element={<CreateCategory />} />
+        <Route path="/dashboard/create-product" element={<CreateProduct />} />
       </Route>
 
       {/* Other routes */}

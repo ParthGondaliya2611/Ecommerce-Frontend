@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DashboardPannel = ({Role}) => {
+const DashboardPannel = () => {
+  const RoleData = JSON.parse(localStorage.getItem("auth"));
+  const Role = RoleData?.user?.role;
   return (
     <>
       <div className="flex items-center justify-between border-indigo-500 border-2 text-black bg-indigo-50  rounded-md px-3 py-1">

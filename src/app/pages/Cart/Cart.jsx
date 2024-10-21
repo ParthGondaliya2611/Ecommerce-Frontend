@@ -29,7 +29,6 @@ export function Cart() {
     setProductData(data?.cart?.products);
     setcart(data?.cart?.products?.length);
   };
-  console.log(cartloader);
 
   useEffect(() => {
     getcartProduct();

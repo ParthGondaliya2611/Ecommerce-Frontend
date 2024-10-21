@@ -38,7 +38,18 @@ const Dashboard = () => {
           body: JSON.stringify(Register),
         }
       );
+      const data = await response.json();
       if (response.ok) {
+        let existingAuth = JSON.parse(localStorage.getItem("auth"));
+        if (existingAuth && existingAuth.user) {
+          existingAuth.user.name = data.user.name;
+          existingAuth.user.email = data.user.email;
+          existingAuth.user.phone = data.user.phone;
+          existingAuth.user.role = data.user.role;
+        } else {
+          existingAuth = { user: data.user };
+        }
+        localStorage.setItem("auth", JSON.stringify(existingAuth));
         setUpdate(true);
       }
     } catch (error) {
@@ -56,7 +67,6 @@ const Dashboard = () => {
         },
       });
       const data = await response.json();
-      setRole(data?.user?.role);
       setValue(data.user);
       setUpdate(false);
       setRegister(data.user);
@@ -74,7 +84,7 @@ const Dashboard = () => {
         <div className="sm:px-10 px-4">
           <div className="w-full mt-10 text-center">
             <div>
-              <DashboardPannel Role={role} />
+              <DashboardPannel />
             </div>
           </div>
 
