@@ -25,13 +25,13 @@ export const slides = [
 export const categoryphotos = [
   {
     image:
-      "https://www.transparentpng.com/download/laptop/9oRuDc-refreshed-pavilion-gaming-series-launching-next-month.png",
+      "https://png.pngtree.com/png-clipart/20240327/original/pngtree-laptop-with-colorful-screen-png-image_14693243.png",
     label: "Laptop",
   },
 
   {
     image:
-      "https://images.philips.com/is/image/philipsconsumer/b8992131d5a3401e9d6eb0c300d8f4fe?$pnglarge$&wid=1250",
+      "https://static.vecteezy.com/system/resources/previews/048/475/325/non_2x/gaming-headphones-on-transparent-background-free-png.png",
     label: "Headphones",
   },
   {
@@ -46,7 +46,7 @@ export const categoryphotos = [
   },
   {
     image:
-      "https://motorolauk.vtexassets.com/arquivos/ids/159920-800-auto?width=800&height=auto&aspect=true",
+      "https://ipowerresale.com/cdn/shop/files/media_130622b0-adf6-4f0d-b0b3-dd9cb1f493fe.png?v=1713221701",
     label: "Smartphones",
   },
   {
